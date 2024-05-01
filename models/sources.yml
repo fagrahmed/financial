@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: dbt-dimensions
+    tables:
+      - name: transactions_dimension
+      - name: wallets_dimension
+      - name: profiles_dimension
+  - name: dbt-facts
+    tables:
+      - name: transactions_fact
