@@ -12,9 +12,9 @@ WITH cohort_data AS (
         pd.profile_type,
         tft.is_employee,
         tft.txndetailsid,
-		tft.transaction_modifiedat_utc2,
-		dd.full_date,
-		tid.full_time,
+	tft.transaction_modifiedat_utc2,
+	dd.full_date,
+	tid.full_time,
         td.txntype,
         tft.amount,
         tft.total_revenue_before_vat,
@@ -28,9 +28,9 @@ WITH cohort_data AS (
         ON pd.walletprofileid = tft.walletprofileid
     JOIN {{ source('dbt-dimensions', 'transactions_dimension') }} td
         ON td.txndetailsid = tft.txndetailsid
-    JOIN {{ source('dbt-dimensions', 'date-dimension')}} dd
+    JOIN {{ source('dbt-dimensions', 'date_dimension')}} dd
         ON tft.date_id = dd.date_id
-    JOIN {{ source('dbt-dimensions', 'time-dimension')}} tid
+    JOIN {{ source('dbt-dimensions', 'time_dimension')}} tid
         ON tft.time_id = tid.time_id
     WHERE wd.wallet_type = 'WalletType_CONSUMER'
         AND td.transactionstatus IN ('TransactionStatus_POSTED', 'TransactionStatus_POSTED_FAWRY','TransactionStatus_PENDING_ADVICE')
