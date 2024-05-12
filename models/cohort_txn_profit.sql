@@ -1,6 +1,6 @@
 -- models/cohort_txn_profit.sql
 
-{{ config (materialized='table') }}
+{{ config (materialized='view') }}
 
 WITH cohort_data AS (
     SELECT
