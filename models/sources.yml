@@ -6,6 +6,8 @@ sources:
       - name: transactions_dimension
       - name: wallets_dimension
       - name: profiles_dimension
+      - name: time-dimension
+      - name: date-dimension
   - name: dbt-facts
     tables:
       - name: transactions_fact
