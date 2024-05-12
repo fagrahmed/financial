@@ -21,7 +21,7 @@ WITH cohort_data AS (
         tft.total_cost_before_vat,
         (tft.total_revenue_before_vat - tft.total_cost_before_vat) as profit_before_vat 
     
-    FROM {{ source('dbt-fact', 'transactions_fact') }} tft
+    FROM {{ source('dbt-facts', 'transactions_fact') }} tft
     JOIN {{ source('dbt-dimensions', 'wallets_dimension') }} wd
         ON wd.walletid = tft.walletdetailsid
     JOIN {{ source('dbt-dimensions', 'profiles_dimension') }} pd
