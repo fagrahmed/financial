@@ -24,9 +24,9 @@ WITH cohort_data AS (
     
     FROM {{ source('dbt-facts', 'transactions_fact') }} tft
     JOIN {{ source('dbt-dimensions', 'wallets_dimension') }} wd
-        ON wd.walletid = tft.walletdetailsid
+        ON wd.id = tft.wallet_key
     JOIN {{ source('dbt-dimensions', 'profiles_dimension') }} pd
-        ON pd.walletprofileid = tft.walletprofileid
+        ON pd.id = tft.profile_key
     JOIN {{ source('dbt-dimensions', 'transactions_dimension') }} td
         ON td.txndetailsid = tft.txndetailsid
     JOIN {{ source('dbt-dimensions', 'date_dimension')}} dd
