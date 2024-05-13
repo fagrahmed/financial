@@ -30,9 +30,9 @@ WITH cohort_data AS (
     JOIN {{ source('dbt-dimensions', 'transactions_dimension') }} td
         ON td.txndetailsid = tft.txndetailsid
     JOIN {{ source('dbt-dimensions', 'date_dimension')}} dd
-        ON tft.date_id = dd.date_id
+        ON tft.date_key = dd.date_id
     JOIN {{ source('dbt-dimensions', 'time_dimension')}} tid
-        ON tft.time_id = tid.time_id
+        ON tft.time_key = tid.time_id
     WHERE wd.wallet_type = 'WalletType_CONSUMER'
         AND td.transactionstatus IN ('TransactionStatus_POSTED', 'TransactionStatus_POSTED_FAWRY','TransactionStatus_PENDING_ADVICE')
 )
