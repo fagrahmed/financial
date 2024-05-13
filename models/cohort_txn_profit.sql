@@ -7,7 +7,7 @@ WITH cohort_data AS (
     SELECT
         DENSE_RANK() OVER (ORDER BY date_trunc('month', wd.wallet_createdat_utc2)) AS month_key,
         to_char(date_trunc('month', wd.wallet_createdat_utc2), 'MON YYYY') as cohort_month,
-        tft.walletdetailsid,
+        wd.walletid,
         replace(substring(wd.wallet_status,14) ,'_',' ') AS wallet_status,
         pd.partner_name,
         pd.profile_type,
