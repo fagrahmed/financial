@@ -1,6 +1,7 @@
 -- models/cohort_txn_profit.sql
 
-{{ config (materialized='view') }}
+{{ config (materialized = 'materialized_view',
+    on_configuration_change = 'apply') }}
 
 WITH cohort_data AS (
     SELECT
