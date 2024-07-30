@@ -31,7 +31,7 @@ JOIN {{ source('dbt-dimensions', 'transactions_dimension') }} td
 JOIN {{ source('dbt-dimensions', 'date_dimension')}} ddm
     ON tf.date_txn_modified_key = ddm.date_id
 JOIN {{ source('dbt-dimensions', 'time_dimension')}} tidm
-    ON tf.time_txn_modifed_key = tidm.time_id
+    ON tf.time_txn_modified_key = tidm.time_id
 WHERE wd.wallet_type = 'WalletType_CONSUMER'
     AND td.transactionstatus IN ('TransactionStatus_POSTED', 'TransactionStatus_POSTED_FAWRY','TransactionStatus_PENDING_ADVICE')
 
