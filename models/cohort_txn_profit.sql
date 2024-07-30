@@ -13,7 +13,7 @@ SELECT
     pd.profile_type,
     tf.is_employee,
     td.txndetailsid,
-    tf.transaction_modifiedat_local,
+    td.transaction_modifiedat_local,
     ddm.full_date,
     tidm.full_time,
     td.txntype,
