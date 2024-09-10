@@ -17,6 +17,7 @@ SELECT
     ddm.full_date,
     tidm.full_time,
     td.txntype,
+    td.transactiondomain,
     tf.amount,
     tf.total_revenue_before_vat,
     tf.total_cost_before_vat,
